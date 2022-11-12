@@ -1,8 +1,8 @@
-//consume knexfile.js, this will import knex and create an instance of knex connection
 const knex = require("knex");
-const config = require("../knexfile");
-
-//a connection to export to any of the database
-module.exports = knex(
-  process.env.PORT ? config.production : config.development
-);
+require("dotenv").config();
+const knexConfig = require("../knexfile.js");
+const config =
+  process.env.NODE_ENV === "production"
+    ? knexConfig.production
+    : knexConfig.development;
+module.exports = knex(config);
