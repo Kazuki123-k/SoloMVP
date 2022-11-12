@@ -1,0 +1,31 @@
+{
+  "name": "alternatives-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./server/index.js",
+    "dev": "nodemon server/index.js",
+    "concurrent": "concurrently \"npm run dev\" \"cd client && npm start\"",
+    "build": "npm install && npm run migrate && npm run seed && cd client && npm install && npm run build",
+    "make:migration": "knex migrate:make",
+    "migrate": "knex migrate:latest",
+    "make:seed": "knex seed:make",
+    "seed": "knex seed:run",
+    "rollback": "npx knex migrate:rollback",
+    "reset-database": "npm run rollback && npm run migrate && npm run seed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrency": "^0.1.4",
+    "express": "^4.18.2",
+    "knex": "^2.3.0",
+    "pg": "^8.8.0"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.3",
+    "nodemon": "^2.0.20"
+  }
+}
