@@ -3,10 +3,10 @@
  * @returns { Promise<void> }
  */
 exports.up = async function (knex) {
-  return await knex.schema.createTable("food", (table) => {
+  return await knex.schema.createTable("mcdonald", (table) => {
     table.increments("id");
-    table.string("first_name", 255);
-    table.string("last_name", 255);
+    table.string("meal_name", 255);
+    table.integer("calorie", 255);
   });
 };
 
@@ -15,5 +15,5 @@ exports.up = async function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = async function (knex) {
-  return await knex.schema.dropTable("food");
+  return await knex.schema.dropTable("mcdonald");
 };
