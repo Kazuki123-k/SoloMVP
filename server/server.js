@@ -13,8 +13,22 @@ function setupServer() {
     res.status(200).send("Hello world");
   });
 
-  app.get("food", async (req, res) => {
-    const food = await db("food");
+  app.get("/getFood/:food?", async (req, res) => {
+    const queryFood = req.params.food;
+    if (queryFood) {
+      try {
+        const unhealthyFood = await db("alternative_db")
+          .select("*")
+          .from("mcdonald");
+        for (const meal of unhealthyFood) {
+          if (meal["meal_name"].toLowerCase() === queryFood.toLowerCase()) {
+            res.status(200).send(meal);
+          }
+        }
+      } catch (err) {
+        res.send(500).send(err);
+      }
+    }
   });
 
   return app;
