@@ -1,6 +1,8 @@
 const express = require("express");
 const db = require("../db/knex");
 const path = require("path");
+import axios from "axios";
+import { response } from "express";
 
 function setupServer() {
   const app = express();
@@ -9,8 +11,11 @@ function setupServer() {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
   app.use(express.json());
 
-  app.get("/hello", (req, res) => {
-    res.status(200).send("Hello world");
+  app.get("/getFruit", async (req, res) => {
+    await axios
+      .get("https://fruityvice.com/api/fruit/all")
+      .then((response) => response.json())
+      .then((result) => res.send(result.data));
   });
 
   app.get("/getFood/:food?", async (req, res) => {
