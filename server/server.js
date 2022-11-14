@@ -19,7 +19,6 @@ function setupServer() {
     const result = await fetch(url, options).then((res) => {
       return res.json();
     });
-    console.log(result);
     res.send(result).status(200);
   });
 
