@@ -1,1 +1,21 @@
+.healthy-container {
+  float: right;
+}
 
+.fruit {
+  color: white;
+  background-color: rgb(250, 148, 15);
+  margin: 3px;
+  border-radius: 10px;
+}
+
+.fruit:hover {
+  background-color: antiquewhite;
+  opacity: 0.6;
+}
+
+.fruit:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}

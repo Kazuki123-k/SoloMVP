@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
+import "./Unhealthy.css";
 
-const Unhealthy = (props) => {
-  const { setUnhealthyOption } = props;
+const Unhealthy = () => {
   const [paramFood, setParamFood] = useState("");
+  const [unhealthyOption, setUnhealthyOption] = useState("");
 
   const inputBox = useRef();
   const fetchUnhealthyFood = async () => {
@@ -15,6 +16,7 @@ const Unhealthy = (props) => {
 
   return (
     <div className="unhealthy-meal">
+      <h2>Unhealthy Food Test</h2>
       <input
         type="text"
         placeholder="Search..."
@@ -24,6 +26,8 @@ const Unhealthy = (props) => {
         onChange={(e) => setParamFood(e.target.value)}
       />
       <button onClick={fetchUnhealthyFood}>See Calories</button>
+      <h2>Test Meal Name:{unhealthyOption["meal_name"]}</h2>
+      <h2>Test Calroies:{unhealthyOption["calorie"]}</h2>
     </div>
   );
 };

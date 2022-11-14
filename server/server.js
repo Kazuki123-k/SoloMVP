@@ -12,6 +12,7 @@ function setupServer() {
   app.use(express.json());
 
   app.get("/getFruit", async (req, res) => {
+    let responseArr = [];
     const url = "https://fruityvice.com/api/fruit/all";
     const options = {
       method: "GET",
