@@ -11,12 +11,12 @@ function setupServer() {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
   app.use(express.json());
 
-  app.get("/getFruit", async (req, res) => {
-    await axios
-      .get("https://fruityvice.com/api/fruit/all")
-      .then((response) => response.json())
-      .then((result) => res.send(result.data));
-  });
+  // app.get("/getFruit", async (req, res) => {
+  //   await axios
+  //     .get("https://fruityvice.com/api/fruit/all")
+  //     .then((response) => response.json())
+  //     .then((result) => res.send(result.data));
+  // });
 
   app.get("/getFood/:food?", async (req, res) => {
     const queryFood = req.params.food;

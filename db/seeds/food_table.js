@@ -4,7 +4,9 @@
  */
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
-  await knex("mcdonald").del();
+  if (knex("mcdonald")) {
+    await knex("mcdonald").del();
+  }
   await knex("mcdonald").insert([
     { id: 1, meal_name: "BigMac", calorie: 550 },
     { id: 2, meal_name: "Double Cheeseburger", calorie: 457 },
