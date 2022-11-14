@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../components/";
+import "./Healthy.css";
 
 const Healthy = (props) => {
   const { setHealthyOption } = props;
@@ -15,7 +15,9 @@ const Healthy = (props) => {
 
   return (
     <div className="container">
-      <button onClick={getFruit}>Get Some Healthy Food!</button>
+      <button className="health-button" onClick={getFruit}>
+        Get Some Healthy Food!
+      </button>
     </div>
   );
 };

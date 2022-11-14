@@ -5,6 +5,7 @@
 .App {
   text-align: center;
 }
-.Healthy {
-  text-align: right;
+
+.health-button {
+  float: right;
 }
