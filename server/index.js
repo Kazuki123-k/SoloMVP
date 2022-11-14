@@ -7,7 +7,7 @@ const db = require("../db/knex");
   try {
     // await db.migrate.latest();
     server.listen(PORT, () => {
-      console.log("app is listening to http://localhost" + PORT);
+      console.log("app is listening to http://localhost:" + PORT);
     });
   } catch (err) {
     console.error(err);

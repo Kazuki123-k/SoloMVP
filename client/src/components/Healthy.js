@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import "../components/";
 
 const Healthy = (props) => {
   const { setHealthyOption } = props;
