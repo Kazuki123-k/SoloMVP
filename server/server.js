@@ -11,6 +11,8 @@ function setupServer() {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
   app.use(express.json());
 
+  app.post("/clickedFruit", (req, res) => {});
+
   app.get("/getFruit", async (req, res) => {
     let responseArr = [];
     const url = "https://fruityvice.com/api/fruit/all";

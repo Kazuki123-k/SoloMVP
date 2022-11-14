@@ -27,7 +27,7 @@ const Unhealthy = () => {
       />
       <button onClick={fetchUnhealthyFood}>See Calories</button>
       <h2>Test Meal Name:{unhealthyOption["meal_name"]}</h2>
-      <h2>Test Calroies:{unhealthyOption["calorie"]}</h2>
+      <h2>Test Calories:{unhealthyOption["calorie"]}</h2>
     </div>
   );
 };

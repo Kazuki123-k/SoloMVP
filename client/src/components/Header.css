@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
 header {
-  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+  background: linear-gradient(#e66465, #9198e5);
   padding: 15px;
   font-family: "Alfa Slab One", cursive;
 }
