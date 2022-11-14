@@ -1,8 +1,8 @@
 const express = require("express");
 const db = require("../db/knex");
 const path = require("path");
-import axios from "axios";
-import { response } from "express";
+const fetch = (...args) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 function setupServer() {
   const app = express();
@@ -11,12 +11,17 @@ function setupServer() {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
   app.use(express.json());
 
-  // app.get("/getFruit", async (req, res) => {
-  //   await axios
-  //     .get("https://fruityvice.com/api/fruit/all")
-  //     .then((response) => response.json())
-  //     .then((result) => res.send(result.data));
-  // });
+  app.get("/getFruit", async (req, res) => {
+    const url = "https://fruityvice.com/api/fruit/all";
+    const options = {
+      method: "GET",
+    };
+    const result = await fetch(url, options).then((res) => {
+      return res.json();
+    });
+    console.log(result);
+    res.send(result).status(200);
+  });
 
   app.get("/getFood/:food?", async (req, res) => {
     const queryFood = req.params.food;

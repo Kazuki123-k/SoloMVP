@@ -8,8 +8,7 @@ const Healthy = (props) => {
   const getFruit = async () => {
     console.log("this funciton is running");
     await axios.get("/getFruit").then((response) => {
-      console.log(response.data);
-      setHealthyOption(response.data);
+      return setHealthyOption(response.data);
     });
   };
 
