@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import Header from "./components/Header.js";
-import Healthy from "./components/Healthy.js";
-import Unhealthy from "./components/Unhealthy.js";
+import Home from "./components/Home";
+import Landing from "./components/Landing.js";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [unhealthyOption, setUnhealthyOption] = useState("");
 
   return (
     <div className="App">
-      <Header />
-      <Unhealthy />
-      <Healthy />
+      <main>
+        <Router>
+          <Routes>
+            <Route path={"/"} element={<Landing />} />
+            <Route path={"/home"} element={<Home />} />
+          </Routes>
+        </Router>
+      </main>
     </div>
   );
 }
