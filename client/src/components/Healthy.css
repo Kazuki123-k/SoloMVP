@@ -1,5 +1,6 @@
 .healthy-container {
-  float: right;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
 }
 h1 {
   color: #666;
@@ -8,12 +9,15 @@ h1 {
 .fruit {
   color: white;
   background-color: rgb(250, 148, 15);
-  margin: 3px;
+  margin: 5px;
   border-radius: 10px;
+  text-align: center;
+}
+h3 {
+  font-size: 30px;
 }
 
 .fruit:hover {
-  background-color: antiquewhite;
   opacity: 0.6;
 }
 

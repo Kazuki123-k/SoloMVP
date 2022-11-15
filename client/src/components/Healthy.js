@@ -10,14 +10,17 @@ const Healthy = () => {
     await axios.post(`/chosenFruit`, () => {});
   };
 
-  const fruitInfo = healthyOption.map((fruit) => {
+  const fruitInfo = healthyOption.map((fruit, index) => {
     return (
       <div
         className="fruit"
         ref={clickedFruit}
         onClick={(e) => console.log(fruit.name + " was clicked")}
+        key={index}
       >
-        {fruit.name} : {fruit.nutritions.calories}kcal
+        <h3>
+          {fruit.name} : {fruit.nutritions.calories}kcal
+        </h3>
       </div>
     );
   });
@@ -31,11 +34,12 @@ const Healthy = () => {
   for (let i = 0; i < 10; i++) {}
 
   return (
-    <div className="healthy-container">
+    <div>
       <button className="health-button" onClick={getFruit}>
         Get Some Healthy Food!
       </button>
-      <h2>Test fetched healthy option:{fruitInfo}</h2>
+      <h2>Healthy Options</h2>
+      <div className="healthy-container">{fruitInfo}</div>
     </div>
   );
 };

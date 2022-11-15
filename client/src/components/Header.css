@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
 header {
-  background: linear-gradient(#e66465, #9198e5);
-  padding: 15px;
+  padding: 5%;
+  font-size: 40px;
   font-family: "Alfa Slab One", cursive;
+}
+.glow {
+  font-size: 80px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glow 1s ease-in-out infinite alternate;
+  -moz-animation: glow 1s ease-in-out infinite alternate;
+  animation: glow 1s ease-in-out infinite alternate;
 }
