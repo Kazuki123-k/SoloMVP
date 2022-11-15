@@ -1,6 +1,9 @@
 .healthy-container {
   float: right;
 }
+h1 {
+  color: #666;
+}
 
 .fruit {
   color: white;
