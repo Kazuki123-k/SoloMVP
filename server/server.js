@@ -11,7 +11,17 @@ function setupServer() {
   app.use(express.static(path.resolve(__dirname, "../client/build")));
   app.use(express.json());
 
-  app.post("/clickedFruit", (req, res) => {});
+  app.post("/submitFruit", async (req, res) => {
+    let payload = req.body;
+    try {
+      payload.map(async (fruit) => {
+        await db("alternative_db").select("*").from("fruit").insert(fruit);
+      });
+      return res.status(200).send(`inserted into the DB!`);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  });
 
   app.get("/getFruit", async (req, res) => {
     let responseArr = [];
