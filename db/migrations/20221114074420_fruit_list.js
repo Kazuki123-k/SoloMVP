@@ -6,7 +6,7 @@ exports.up = async function (knex) {
   return await knex.schema.createTable("fruit", (table) => {
     table.increments("id");
     table.string("fruit_name", 255);
-    table.integer("calorie", 255);
+    table.string("calorie", 255);
   });
 };
 

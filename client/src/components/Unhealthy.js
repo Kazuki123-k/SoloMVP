@@ -26,8 +26,8 @@ const Unhealthy = () => {
         onChange={(e) => setParamFood(e.target.value)}
       />
       <button onClick={fetchUnhealthyFood}>See Calories</button>
-      <h3>Test Meal Name:{unhealthyOption["meal_name"]}</h3>
-      <h3>Test Calories:{unhealthyOption["calorie"]}</h3>
+      <h3>Meal Name:{unhealthyOption["meal_name"]}</h3>
+      <h3>Calories:{unhealthyOption["calorie"]}</h3>
     </div>
   );
 };
