@@ -20,6 +20,7 @@ h1 {
 
 .fruit {
   color: white;
+  padding: 5px;
   background-color: #fa9500;
   margin: 5px;
   border-radius: 10px;
@@ -37,4 +38,12 @@ h3 {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+input {
+  padding: 15px;
+  border-radius: 15px;
+}
+button {
+  padding: 15px;
+  border-radius: 15px;
 }

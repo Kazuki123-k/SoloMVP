@@ -7,9 +7,9 @@
 }
 body {
   color: white;
-  background: linear-gradient(#4cb8f1, #3ef3e6);
+  background: linear-gradient(#598ac5, #3ef3e6);
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
 }
 .App {
   text-align: center;
