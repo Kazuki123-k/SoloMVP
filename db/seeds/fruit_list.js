@@ -5,5 +5,5 @@
 exports.seed = async function (knex) {
   // Deletes ALL existing entries
   await knex("fruit").del();
-  await knex("fruit").insert([{ fruit_name: "test1", calorie: 100 }]);
+  await knex("fruit").insert([{ fruit_name: "test1", calorie: "100" }]);
 };

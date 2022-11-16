@@ -6,18 +6,26 @@ const Healthy = () => {
   const [healthyOption, setHealthyOption] = useState([]);
   const [randomFruit, setRandomFruit] = useState([]);
   const clickedFruit = useRef();
+  const [fruitArr, setFruitArr] = useState([]);
+  const totalCalories = useRef(0);
+
   const postRequest = async () => {
     await axios.post(`/chosenFruit`, () => {});
   };
 
-  const fruitInfo = healthyOption.map((fruit) => {
+  //parseInt([2].split("k")[0])
+  const fruitInfo = healthyOption.map((fruit, index) => {
     return (
       <div
         className="fruit"
         ref={clickedFruit}
-        onClick={(e) => console.log(fruit.name + " was clicked")}
+        onClick={(e) => {
+          result += parseInt(e.target.innerText.split(" ")[2]);
+          console.log(result);
+        }}
+        key={index}
       >
-        {fruit.name} : {fruit.nutritions.calories}kcal
+        {fruit.name} : {fruit.nutritions.calories} kcal
       </div>
     );
   });
@@ -28,14 +36,14 @@ const Healthy = () => {
       return setHealthyOption(response.data);
     });
   };
-  for (let i = 0; i < 10; i++) {}
 
   return (
-    <div className="healthy-container">
+    <div>
       <button className="health-button" onClick={getFruit}>
         Get Some Healthy Food!
       </button>
-      <h2>Test fetched healthy option:{fruitInfo}</h2>
+      <h2>Healthy Options</h2>
+      <div className="healthy-container">{fruitInfo}</div>
     </div>
   );
 };

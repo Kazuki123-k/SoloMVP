@@ -1,6 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Anton&display=swap");
 header {
-  background: linear-gradient(#e66465, #9198e5);
-  padding: 15px;
-  font-family: "Alfa Slab One", cursive;
+  padding: 5%;
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.glow {
+  font-family: "Anton", sans-serif;
+  color: rgb(249, 234, 234);
 }
