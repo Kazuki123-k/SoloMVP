@@ -69,18 +69,17 @@ const Healthy = () => {
           <button
             onClick={(e) => {
               postRequest();
+              navigate("/list");
             }}
           >
             Submit
           </button>
           <div className="outer-grid">
             <div className="healthy-container">{fruitInfo}</div>
-            <div className="chosen-fruit">
-              <List chosenFruit={postObj} />
-            </div>
           </div>
         </div>
       )}
     </div>
   );
+};
 export default Healthy;
