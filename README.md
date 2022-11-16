@@ -2,7 +2,7 @@
 A simple web app that allows you to visualize how much you food you can eat in exchange for a fast food.
 
 ## Table of contents
-* [General info] (#general-info)
+* [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
 
