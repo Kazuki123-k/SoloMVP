@@ -44,6 +44,7 @@ $npm run concurrent
 * Fix bugs regarding update and delete(currently not included in the code base.)
 
 # Sources
-The initial setup for this project was coded using @Jaymontojo.
-The api used for this app is from https://www.fruityvice.com/
+* The initial setup for this project was coded using @Jaymontojo.
+* The api used for this app is from https://www.fruityvice.com/.
+
 
