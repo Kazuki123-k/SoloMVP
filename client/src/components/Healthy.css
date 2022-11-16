@@ -1,9 +1,21 @@
+.outer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.5fr;
+}
+
 .healthy-container {
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: 1fr 1fr;
+}
+.healthy-container > div {
+  box-shadow: 5px 3px 3px linear-gradient(#4de7d0, #1390c2);
 }
 h1 {
   color: #666;
+}
+.health {
+  padding: 1% 3% 0 3%;
 }
 
 .fruit {
