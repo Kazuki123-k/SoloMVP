@@ -4,24 +4,26 @@ import "./Healthy.css";
 
 const Healthy = () => {
   const [healthyOption, setHealthyOption] = useState([]);
-  const [randomFruit, setRandomFruit] = useState([]);
-  const clickedFruit = useRef();
-  const [fruitArr, setFruitArr] = useState([]);
-  const totalCalories = useRef(0);
+  const [totalCalories, setTotalCalories] = useState(0);
+  const [postObject, setPostObject] = useState([]);
+  const postObj = useRef([]);
 
   const postRequest = async () => {
     await axios.post(`/chosenFruit`, () => {});
   };
-
-  //parseInt([2].split("k")[0])
   const fruitInfo = healthyOption.map((fruit, index) => {
     return (
       <div
         className="fruit"
-        ref={clickedFruit}
         onClick={(e) => {
-          result += parseInt(e.target.innerText.split(" ")[2]);
-          console.log(result);
+          setTotalCalories(
+            totalCalories + parseInt(e.target.innerText.split(" ")[2])
+          );
+          postObj.current.push({
+            fruit_name: fruit.name,
+            calories: fruit.nutritions.calories,
+          });
+          console.log(postObj.current);
         }}
         key={index}
       >
@@ -39,10 +41,11 @@ const Healthy = () => {
 
   return (
     <div>
+      <h2>Healthy Options</h2>
       <button className="health-button" onClick={getFruit}>
         Get Some Healthy Food!
       </button>
-      <h2>Healthy Options</h2>
+      <h3>Current Calories: {totalCalories}</h3>
       <div className="healthy-container">{fruitInfo}</div>
     </div>
   );

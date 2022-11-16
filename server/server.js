@@ -17,7 +17,7 @@ function setupServer() {
       payload.map(async (fruit) => {
         await db("alternative_db").select("*").from("fruit").insert(fruit);
       });
-      return res.status(200).send(`inserted into the DB!`);
+      return res.status(200).send(`Inserted fruits in DB:)🥭`);
     } catch (err) {
       res.status(500).send(err);
     }
