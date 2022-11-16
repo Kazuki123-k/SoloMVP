@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Home from "./components/Home";
 import Landing from "./components/Landing.js";
+import List from "./components/List.js";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

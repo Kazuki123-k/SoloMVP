@@ -7,6 +7,8 @@ const Healthy = () => {
   const navigate = useNavigate();
   const [healthyOption, setHealthyOption] = useState([]);
   const [totalCalories, setTotalCalories] = useState(0);
+  const [isToggled, setIsToggled] = useState(false);
+  const [showList, setShowList] = useState(false);
   const [postObject, setPostObject] = useState([]);
   const postObj = useRef([]);
 
@@ -44,11 +46,23 @@ const Healthy = () => {
   return (
     <div>
       <h2>Healthy Options</h2>
-      <button className="health-button" onClick={getFruit}>
-        Get Some Healthy Food!
-      </button>
+      {!isToggled && (
+        <button
+          className="health-button"
+          onClick={() => {
+            getFruit();
+            setIsToggled(true);
+          }}
+        >
+          Get Some Healthy Food!
+        </button>
+      )}
       <h3>Current Calories: {totalCalories}</h3>
-      <button onClick={navigate("/List")}>List down chosen fruits</button>
+      {isToggled && (
+        <button onClick={() => navigate("/List")}>
+          List down chosen fruits
+        </button>
+      )}
       <div className="healthy-container">{fruitInfo}</div>
     </div>
   );
