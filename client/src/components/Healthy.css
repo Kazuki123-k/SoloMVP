@@ -9,7 +9,7 @@
   grid-template-columns: 1fr 1fr;
 }
 .healthy-container > div {
-  box-shadow: 5px 3px 3px linear-gradient(#4de7d0, #1390c2);
+  box-shadow: 3px 3px 3px rgb(96, 81, 81);
 }
 h1 {
   color: #666;

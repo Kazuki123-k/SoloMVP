@@ -1,23 +1,17 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Healthy.css";
-import List from "./List";
-import { useNavigate, Navigate } from "react-router-dom";
 
 const Healthy = () => {
-  const navigate = useNavigate();
   const [healthyOption, setHealthyOption] = useState([]);
   const [totalCalories, setTotalCalories] = useState(0);
   const [isToggled, setIsToggled] = useState(false);
-  const [showList, setShowList] = useState(false);
-  const [clickedFruit, setClickedFruit] = useState(null);
   const [clicked, setClicked] = useState(false);
   const postObj = useRef([]);
+  const clickedFruit = useRef([]);
 
   const postRequest = async () => {
-    await axios
-      .post(`/submitFruit`, postObj.current)
-      .then((response) => console.log(response.data));
+    await axios.post(`/submitFruit`, postObj.current);
   };
 
   const fruitInfo = healthyOption.map((fruit, index) => {
@@ -32,8 +26,9 @@ const Healthy = () => {
             fruit_name: fruit.name,
             calories: fruit.nutritions.calories,
           });
-          console.log(postObj.current);
-          setClickedFruit(`${fruit.name} :  ${fruit.nutritions.calories}`);
+          clickedFruit.current.push(
+            `${fruit.name} :  ${fruit.nutritions.calories}`
+          );
         }}
         key={index}
       >
@@ -48,6 +43,10 @@ const Healthy = () => {
       return setHealthyOption(response.data);
     });
   };
+
+  const listFruit = clickedFruit.current.map((fruit) => {
+    return <h3>{fruit}kcal</h3>;
+  });
 
   return (
     <div>
@@ -69,14 +68,24 @@ const Healthy = () => {
           <button
             onClick={(e) => {
               postRequest();
-              navigate("/list");
+              setClicked(false);
+              setIsToggled(true);
             }}
           >
             Submit
           </button>
-          <div className="outer-grid">
-            <div className="healthy-container">{fruitInfo}</div>
-          </div>
+          {!isToggled && (
+            <div className="outer-grid">
+              <div className="healthy-container">{fruitInfo}</div>
+            </div>
+          )}
+        </div>
+      )}
+      {isToggled && (
+        <div>
+          <h2>You have chosend these fruits!</h2>
+          <h3>Total Calories: {totalCalories}</h3>
+          <h3>{listFruit}</h3>
         </div>
       )}
     </div>
