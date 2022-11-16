@@ -1,8 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Healthy.css";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const Healthy = () => {
+  const navigate = useNavigate();
   const [healthyOption, setHealthyOption] = useState([]);
   const [totalCalories, setTotalCalories] = useState(0);
   const [postObject, setPostObject] = useState([]);
@@ -46,6 +48,7 @@ const Healthy = () => {
         Get Some Healthy Food!
       </button>
       <h3>Current Calories: {totalCalories}</h3>
+      <button onClick={navigate("/List")}>List down chosen fruits</button>
       <div className="healthy-container">{fruitInfo}</div>
     </div>
   );
