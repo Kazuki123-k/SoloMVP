@@ -64,7 +64,9 @@ const Healthy = () => {
       )}
       {clicked && (
         <div>
-          <h3>Current Calories: {totalCalories}</h3>
+          <h3>
+            Current Calories: <div className="green">{totalCalories}</div>
+          </h3>
           <button
             onClick={(e) => {
               postRequest();

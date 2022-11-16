@@ -8,8 +8,8 @@ const Landing = () => {
       <div className="content">
         <h1 className>Alternatives</h1>
         <h2>
-          The average daily calory intake is about 2,500 for male, and 2,000 for
-          female
+          The average daily calorie intake is about 2,500 for male, and 2,000
+          for female
         </h2>
         <h3>You can easily overconsume calories from eating fast food</h3>
         <h4>
