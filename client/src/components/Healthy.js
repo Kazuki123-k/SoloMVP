@@ -13,8 +13,11 @@ const Healthy = () => {
   const postObj = useRef([]);
 
   const postRequest = async () => {
-    await axios.post(`/chosenFruit`, () => {});
+    await axios
+      .post(`/submitFruit`, postObj.current)
+      .then((response) => console.log(response.data));
   };
+
   const fruitInfo = healthyOption.map((fruit, index) => {
     return (
       <div
