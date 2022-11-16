@@ -51,14 +51,36 @@ const Healthy = () => {
 
   return (
     <div>
-      <h2>Healthy Options</h2>
-      <button className="health-button" onClick={getFruit}>
-        Get Some Healthy Food!
-      </button>
-      <h3>Current Calories: {totalCalories}</h3>
-      <div className="healthy-container">{fruitInfo}</div>
+      <h2 className="health">Healthy Options</h2>
+      {!clicked && (
+        <button
+          className="health-button"
+          onClick={(e) => {
+            getFruit();
+            setClicked(true);
+          }}
+        >
+          Get Some Healthy Food!
+        </button>
+      )}
+      {clicked && (
+        <div>
+          <h3>Current Calories: {totalCalories}</h3>
+          <button
+            onClick={(e) => {
+              postRequest();
+            }}
+          >
+            Submit
+          </button>
+          <div className="outer-grid">
+            <div className="healthy-container">{fruitInfo}</div>
+            <div className="chosen-fruit">
+              <List chosenFruit={postObj} />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-};
-
 export default Healthy;
