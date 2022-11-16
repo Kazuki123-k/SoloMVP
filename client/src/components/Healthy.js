@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Healthy.css";
+import List from "./List";
 import { useNavigate, Navigate } from "react-router-dom";
 
 const Healthy = () => {
@@ -9,7 +10,8 @@ const Healthy = () => {
   const [totalCalories, setTotalCalories] = useState(0);
   const [isToggled, setIsToggled] = useState(false);
   const [showList, setShowList] = useState(false);
-  const [postObject, setPostObject] = useState([]);
+  const [clickedFruit, setClickedFruit] = useState(null);
+  const [clicked, setClicked] = useState(false);
   const postObj = useRef([]);
 
   const postRequest = async () => {
@@ -31,6 +33,7 @@ const Healthy = () => {
             calories: fruit.nutritions.calories,
           });
           console.log(postObj.current);
+          setClickedFruit(`${fruit.name} :  ${fruit.nutritions.calories}`);
         }}
         key={index}
       >
@@ -49,23 +52,10 @@ const Healthy = () => {
   return (
     <div>
       <h2>Healthy Options</h2>
-      {!isToggled && (
-        <button
-          className="health-button"
-          onClick={() => {
-            getFruit();
-            setIsToggled(true);
-          }}
-        >
-          Get Some Healthy Food!
-        </button>
-      )}
+      <button className="health-button" onClick={getFruit}>
+        Get Some Healthy Food!
+      </button>
       <h3>Current Calories: {totalCalories}</h3>
-      {isToggled && (
-        <button onClick={() => navigate("/List")}>
-          List down chosen fruits
-        </button>
-      )}
       <div className="healthy-container">{fruitInfo}</div>
     </div>
   );
